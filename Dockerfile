@@ -6,13 +6,13 @@ RUN yum install openssl-devel tar unzip wget gcc-c++ pcre-dev pcre-devel zlib-de
   && yum clean all \
   && cd /tmp \
   && wget -q https://github.com/pagespeed/ngx_pagespeed/archive/release-${NPS_VERSION}-beta.zip \
-  && unzip release-${NPS_VERSION}-beta.zip \
+  && unzip -q release-${NPS_VERSION}-beta.zip \
   && cd /tmp/ngx_pagespeed-release-${NPS_VERSION}-beta \
   && wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.gz \
-  && tar -xzvf ${NPS_VERSION}.tar.gz \
+  && tar -xzf ${NPS_VERSION}.tar.gz \
   && cd /tmp \
   && wget -q http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
-  && tar -xvzf nginx-${NGINX_VERSION}.tar.gz \
+  && tar -xzf nginx-${NGINX_VERSION}.tar.gz \
   && cd /tmp/nginx-${NGINX_VERSION} \
   && ./configure --add-module=/tmp/ngx_pagespeed-release-${NPS_VERSION}-beta --sbin-path=/usr/sbin/nginx --with-http_spdy_module --with-http_ssl_module --prefix=/etc/nginx/ \
   && make \
