@@ -17,8 +17,9 @@ RUN yum install openssl-devel tar unzip wget gcc-c++ pcre-dev pcre-devel zlib-de
   && ./configure --add-module=/tmp/ngx_pagespeed-release-${NPS_VERSION}-beta --sbin-path=/usr/sbin/nginx --with-http_spdy_module --with-http_ssl_module --prefix=/etc/nginx/ \
   && make \
   && make install \
-  && cd / \
+  && cd /tmp \
   && rm -rf nginx-1.6.1  nginx-1.6.1.tar.gz  ngx_pagespeed-release-1.8.31.4-beta  release-1.8.31.4-beta.zip /etc/nginx/sites-enabled/* \
+  && cd / \
   && mkdir -p /etc/nginx/sites-enabled/
 
 EXPOSE 80
