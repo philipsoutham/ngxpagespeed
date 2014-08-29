@@ -32,6 +32,7 @@ function write_server {
     cat >> /etc/nginx/sites-enabled/$1 <<EOF
   server_name $1;
   pagespeed Domain $1;
+  pagespeed LoadFromFile "http://$1/" "/www/data/";
 EOF
 }
 
